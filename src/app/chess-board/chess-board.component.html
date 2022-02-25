@@ -1,0 +1,15 @@
+<ngx-chess-board
+  [lightDisabled]="boardId==1"
+  [darkDisabled]="boardId!=1"
+  [class.hide]="!loaded"
+  [size]="500"
+  [darkTileColor]="'#769656'"
+  [lightTileColor]="'#ffffff'"
+  [showCoords]="false"
+  (moveChange)="onMove()"
+  (checkmate)="onCheckMate()"
+  #chessBoard></ngx-chess-board>
+<div style="text-align: center"
+     [class.hide]="!loaded || getCurrentPlayer(chessBoard.getFEN())!=boardId"
+>YOUR TURN &#8593;</div>
+<p [class.hide]="loaded">Loading...</p>
